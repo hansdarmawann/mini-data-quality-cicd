@@ -27,7 +27,7 @@ def clean_orders(source: Path, destination: Path) -> int:
             except ValueError:
                 continue
 
-            if not order_id or not customer or amount <= 0 or order_id in seen_ids:
+            if not order_id or not customer or amount < 0 or order_id in seen_ids:
                 continue
 
             cleaned.append({"order_id": order_id, "customer": customer, "amount": amount})
